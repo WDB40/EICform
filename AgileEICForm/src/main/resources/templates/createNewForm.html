@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Create Session</title>
 </head>
 <body>
+
+	<form name='f' th:object="${newSession}" th:action="@{/inputSession}"
+		method='POST'>
+		Prompting Event: <input name="promptingEvent" size="50"> <br />
+		${#temporals.createNowForTimeZone(zoneId)}<br> <input
+			name="submit" type="submit" value="submit" />
+	</form>
+	<a href="viewAllForms">View All Your Forms</a>
+	<br>
+	<a href="updateForm">Update A Form</a>
+	<br>
+	<a href="createSessionItem">Create A Session Item</a>
+	<br>
 
 </body>
 </html>

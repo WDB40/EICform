@@ -17,7 +17,7 @@ public class Session {
 	private String promptingEvent;
 	private LocalDateTime eventDate;
 	
-	Session() {
+	public Session() {
 		this.eventDate = LocalDateTime.now();
 	}
 	
