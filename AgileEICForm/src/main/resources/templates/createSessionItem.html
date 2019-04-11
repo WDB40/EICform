@@ -2,9 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Item to Session</title>
 </head>
 <body>
+
+<form>
+	<input type="hidden" id="sessionId" name="sessionId" value="1">
+	
+	<select id="category" name="category">
+		<option th:each="thisCategory : ${T(eic.model.Category).values()}"
+				th:value="${thisCategory}"
+				th:text="${thisCategory}">
+		</option>
+	</select>
+	
+	<input type="text" id="description" name="description">
+	
+	<select id="intensity" name="intensity">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select>
+	
+	<input type="submit" name="finalAdd" value="Add and Exit">
+	<input type="submit" name="addMore" value="Add and Add Another">
+	
+</form>
 
 </body>
 </html>
