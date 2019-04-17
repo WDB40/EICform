@@ -8,7 +8,7 @@ USE eicform;
 CREATE TABLE sessions(
 	session_id INT AUTO_INCREMENT PRIMARY KEY,
     prompting_event VARCHAR(50),
-    event_date DATETIME);
+    event_date DATE);
     
 CREATE TABLE sessionitems(
 	item_id INT AUTO_INCREMENT PRIMARY KEY,
