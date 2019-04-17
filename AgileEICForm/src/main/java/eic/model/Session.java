@@ -1,31 +1,40 @@
 package eic.model;
 
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-import java.time.LocalDateTime;
-
+@Entity
+@Table(name="SESSIONS")
 public class Session {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="SESSION_ID")
 	private long sessionId;
+	
 //	private Timestamp creationtime;
+	
+	@Column(name="PROMPTING_EVENT")
 	private String promptingEvent;
-	private LocalDateTime eventDate;
+	
+	@Column(name="EVENT_DATE")
+	private LocalDate eventDate;
 	
 	public Session() {
-		this.eventDate = LocalDateTime.now();
+		this.eventDate = LocalDate.now();
 	}
 	
-	Session(String pe) {
+	public Session(String pe) {
 		this.promptingEvent = pe;
 	}
 
-	Session(String pe, LocalDateTime ed) {
+	public Session(String pe, LocalDate ed) {
 		this.promptingEvent = pe;
 		this.eventDate = ed;
 	}
@@ -39,7 +48,7 @@ public class Session {
 		return promptingEvent;
 	}
 
-	public LocalDateTime getEventDate() {
+	public LocalDate getEventDate() {
 		return eventDate;
 	}
 
@@ -47,14 +56,13 @@ public class Session {
 		this.promptingEvent = promptingEvent;
 	}
 	
-	public void setEventDate(LocalDateTime ed) {
+	public void setEventDate(LocalDate ed) {
 		this.eventDate = ed;
 	}
 
-	// helper methods
 	@Override
 	public String toString() {
-		return "Session [promptingEvent=" + promptingEvent + ", eventDate=" + eventDate + "]";
+		return "Session [sessionId=" + sessionId + ", promptingEvent=" + promptingEvent + ", eventDate=" + eventDate
+				+ "]";
 	}
-	
 }

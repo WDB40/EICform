@@ -1,25 +1,44 @@
 package eic.model;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="SESSIONITEMS")
 public class Sessionitems {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ITEM_ID")
 	private long itemId;
-	private long sessionId;
-	private String itemType;
+	
+	@ManyToOne(cascade=CascadeType.MERGE)
+	@JoinColumn(name="SESSION_ID")
+	private Session session;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="ITEM_TYPE")
+	private Category category;
+	
+	@Column(name="ITEM_DESC")
 	private String itemDescription;
+	
+	@Column(name="INTENSITY_LEVEL")
 	private int intensityLevel;
 
-	public Sessionitems(long sessionId, String itemType, String itemDescription, int intensityLevel) {
+	public Sessionitems(Session session, Category category, String itemDescription, int intensityLevel) {
 		super();
-		this.sessionId = sessionId;
-		this.itemType = itemType;
+		this.session = session;
+		this.category = category;
 		this.itemDescription = itemDescription;
 		this.intensityLevel = intensityLevel;
 	}
@@ -27,14 +46,6 @@ public class Sessionitems {
 	// getters and setters
 	public long getItemId() {
 		return itemId;
-	}
-
-	public long getSessionId() {
-		return sessionId;
-	}
-
-	public String getItemType() {
-		return itemType;
 	}
 
 	public String getItemDescription() {
@@ -45,14 +56,6 @@ public class Sessionitems {
 		return intensityLevel;
 	}
 
-	public void setSessionId(long sessionId) {
-		this.sessionId = sessionId;
-	}
-
-	public void setItemType(String itemType) {
-		this.itemType = itemType;
-	}
-
 	public void setItemDescription(String itemDescription) {
 		this.itemDescription = itemDescription;
 	}
@@ -61,9 +64,25 @@ public class Sessionitems {
 		this.intensityLevel = intensityLevel;
 	}
 
+	public Session getSession() {
+		return session;
+	}
+
+	public void setSession(Session session) {
+		this.session = session;
+	}
+	
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
 	@Override
 	public String toString() {
-		return "Sessionitems [itemId=" + itemId + ", sessionId=" + sessionId + ", itemType=" + itemType
+		return "Sessionitems [itemId=" + itemId + ", session=" + session + ", category=" + category
 				+ ", itemDescription=" + itemDescription + ", intensityLevel=" + intensityLevel + "]";
 	}
 	
