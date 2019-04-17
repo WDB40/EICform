@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="SESSIONITEMS")
-public class Sessionitems {
+public class SessionItem {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +35,7 @@ public class Sessionitems {
 	@Column(name="INTENSITY_LEVEL")
 	private int intensityLevel;
 
-	public Sessionitems(Session session, Category category, String itemDescription, int intensityLevel) {
+	public SessionItem(Session session, Category category, String itemDescription, int intensityLevel) {
 		super();
 		this.session = session;
 		this.category = category;

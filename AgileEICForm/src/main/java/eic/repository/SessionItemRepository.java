@@ -3,7 +3,7 @@ package eic.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import eic.model.Sessionitems;
+import eic.model.SessionItem;
 
 @Repository
-public interface SessionitemsRepository extends JpaRepository<Sessionitems, Long> { }
+public interface SessionItemRepository extends JpaRepository<SessionItem, Long> { }
