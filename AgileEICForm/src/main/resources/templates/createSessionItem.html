@@ -9,6 +9,14 @@
 <form action="/addSessionItem" method="POST">
 	<input type="hidden" id="sessionId" name="sessionId" value="1">
 	
+	<label for="session">Select a Session ID:</label>
+	<select id="session" name="session">
+		<option th:each="thisSession : ${sessions}"
+				th:value=${thisSession.sessionId}
+				th:text=${thisSession.sessionId}>
+		</option>
+	</select>
+	
 	<label for="category">Select a Category: </label>
 	<select id="category" name="category">
 		<option th:each="thisCategory : ${T(eic.model.Category).values()}"

@@ -26,15 +26,18 @@ public class WebController {
 	@GetMapping("/addSessionItem")
 	public String addSessionItemForm(Model model) {
 		
+		model.addAttribute("sessions", sessionRepo.findAll());
+		
 		return "createSessionItem";
 	}
 	
 	@PostMapping("/addSessionItem")
 	public String addSessionItem(Model model){
 		
-		//Session session = new Session("Thing", LocalDate.now());
-		//sessionRepo.save(session);
+		Session session = new Session("Other Thing", LocalDate.now());
+		sessionRepo.save(session);
 		
+		/*
 		Session session = sessionRepo
 							.findById(1l)
 							.orElseThrow(() -> new IllegalArgumentException("Invalid Id: " + 1));
@@ -43,6 +46,7 @@ public class WebController {
 		
 		sessionItemRepo.save(sessionItem);
 		
+		*/
 		return "viewAllForms";
 	}
 	
