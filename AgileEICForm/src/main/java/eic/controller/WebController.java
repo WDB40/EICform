@@ -1,5 +1,7 @@
 package eic.controller;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,6 +55,15 @@ public class WebController {
 		Session s = new Session();
 		model.addAttribute("newSession", s);
 		return "input";
+	}
+	
+	@PostMapping("inputSession")
+	public String inputSession(@RequestParam String promptingEvent,
+							   @RequestParam LocalDate eventDate,
+							   Model model) {
+		
+		model.addAttribute("sessions", sessionRepo.findAll());
+		return "createSessionItem";
 	}
 	
 	@GetMapping("/viewSessions")
