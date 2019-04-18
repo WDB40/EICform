@@ -6,17 +6,21 @@
 </head>
 <body>
 
-	<form name='f' th:object="${newSession}" th:action="@{/inputSession}"
-		method='POST'>
-		Prompting Event: <input name="promptingEvent" size="50"> <br />
-		${#temporals.createNowForTimeZone(zoneId)}<br> <input
-			name="submit" type="submit" value="submit" />
+	<form action="/inputSession" method="POST">
+	
+		<label for="promptingEvent">Prompting Event: </label>
+		<input id="promtingEvent" name="promptingEvent" size="50"> <br />
+		
+		<p>Timestamp: <span></span></p><br>
+		
+		<input name="submit" type="submit" value="submit" />
+	
 	</form>
-	<a href="viewAllForms">View All Your Forms</a>
+	<a href="">View All Your Forms</a>
 	<br>
-	<a href="updateForm">Update A Form</a>
+	<a href="">Update A Form</a>
 	<br>
-	<a href="createSessionItem">Create A Session Item</a>
+	<a href="">Create A Session Item</a>
 	<br>
 
 </body>

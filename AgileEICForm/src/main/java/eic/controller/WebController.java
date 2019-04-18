@@ -52,17 +52,19 @@ public class WebController {
 	
 	@GetMapping("/inputSession")
 	public String inputSession(Model model) {
-		Session s = new Session();
-		model.addAttribute("newSession", s);
-		return "input";
+		Session sessions = new Session();
+		model.addAttribute("newSession", sessions);
+		return "createSession";
 	}
 	
-	@PostMapping("inputSession")
+	@PostMapping("/inputSession")
 	public String inputSession(@RequestParam String promptingEvent,
 							   @RequestParam LocalDate eventDate,
 							   Model model) {
 		
-		model.addAttribute("sessions", sessionRepo.findAll());
+		Session session = new Session(promptingEvent,eventDate);
+		model.addAttribute("newSession", sessionRepo.findAll());
+		sessionRepo.save(session);
 		return "createSessionItem";
 	}
 	
