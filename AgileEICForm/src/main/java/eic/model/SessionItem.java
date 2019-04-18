@@ -35,6 +35,10 @@ public class SessionItem {
 	@Column(name="INTENSITY_LEVEL")
 	private int intensityLevel;
 
+	public SessionItem() {
+		
+	}
+	
 	public SessionItem(Session session, Category category, String itemDescription, int intensityLevel) {
 		super();
 		this.session = session;
@@ -43,25 +47,12 @@ public class SessionItem {
 		this.intensityLevel = intensityLevel;
 	}
 
-	// getters and setters
 	public long getItemId() {
 		return itemId;
 	}
 
-	public String getItemDescription() {
-		return itemDescription;
-	}
-
-	public int getIntensityLevel() {
-		return intensityLevel;
-	}
-
-	public void setItemDescription(String itemDescription) {
-		this.itemDescription = itemDescription;
-	}
-
-	public void setIntensityLevel(int intensityLevel) {
-		this.intensityLevel = intensityLevel;
+	public void setItemId(long itemId) {
+		this.itemId = itemId;
 	}
 
 	public Session getSession() {
@@ -71,13 +62,29 @@ public class SessionItem {
 	public void setSession(Session session) {
 		this.session = session;
 	}
-	
+
 	public Category getCategory() {
 		return category;
 	}
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public String getItemDescription() {
+		return itemDescription;
+	}
+
+	public void setItemDescription(String itemDescription) {
+		this.itemDescription = itemDescription;
+	}
+
+	public int getIntensityLevel() {
+		return intensityLevel;
+	}
+
+	public void setIntensityLevel(int intensityLevel) {
+		this.intensityLevel = intensityLevel;
 	}
 
 	@Override

@@ -57,4 +57,25 @@ public class WebController {
 		
 	}
 	
+	@GetMapping("/viewSessions")
+	public String viewSessionsForm(Model model) {
+		
+		model.addAttribute("sessions", sessionRepo.findAll());
+		
+		return "viewAllForms";
+	}
+	
+	@GetMapping("/viewSession")
+	public String viewSession(@RequestParam Long sessionId,Model model) {
+		
+		Session session = sessionRepo
+				.findById(sessionId)
+				.orElseThrow(() -> new IllegalArgumentException("Invalid Id: " + sessionId));
+		
+		model.addAttribute("sessionItems", sessionItemRepo.findBySession(session));
+		model.addAttribute("sessions", sessionRepo.findAll());
+		
+		return "viewAllForms";
+	}
+	
 }

@@ -12,7 +12,7 @@
 	<select id="sessionId" name="sessionId">
 		<option th:each="thisSession : ${sessions}"
 				th:value=${thisSession.sessionId}
-				th:text=${thisSession.sessionId}>
+				th:text="${thisSession.sessionId} + ' - ' + ${thisSession.promptingEvent}">
 		</option>
 	</select>
 	<br>

@@ -2,9 +2,37 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>View Sessions</title>
 </head>
 <body>
+
+<form action="/viewSession" method="GET">
+	<label for="sessionId">Select a Session ID:</label>
+	<select id="sessionId" name="sessionId">
+		<option th:each="thisSession : ${sessions}"
+				th:value=${thisSession.sessionId}
+				th:text="${thisSession.sessionId} + ' - ' + ${thisSession.promptingEvent}">
+		</option>
+	</select>
+	<input type="submit" name="submit" value="Select">
+	
+	<br>
+	
+	<table>
+		
+		<tr>
+			<td>Category</td>
+			<td>Description</td>
+			<td>Intensity Level</td>
+		</tr>
+		
+		<tr th:each="thisItem : ${sessionItems}">
+			<td th:text="${thisItem.category}"></td>
+			<td th:text="${thisItem.itemDescription}"></td>
+			<td th:text="${thisItem.intensityLevel}"></td>
+		</tr>
+	</table>
+</form>
 
 </body>
 </html>
