@@ -45,7 +45,6 @@ public class WebController {
 		
 		sessionItemRepo.save(sessionItem);
 		
-		
 		return "viewAllForms";
 	}
 	
@@ -54,7 +53,6 @@ public class WebController {
 		Session s = new Session();
 		model.addAttribute("newSession", s);
 		return "input";
-		
 	}
 	
 	@GetMapping("/viewSessions")
