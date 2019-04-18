@@ -1,12 +1,11 @@
 package eic.controller;
 
-import java.time.LocalDate;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import eic.model.Category;
 import eic.model.Session;
@@ -32,21 +31,21 @@ public class WebController {
 	}
 	
 	@PostMapping("/addSessionItem")
-	public String addSessionItem(Model model){
+	public String addSessionItem(@RequestParam Long sessionId, 
+								 @RequestParam Category category,
+								 @RequestParam String description,
+								 @RequestParam Integer intensity,
+								 Model model){
 		
-		Session session = new Session("Other Thing", LocalDate.now());
-		sessionRepo.save(session);
-		
-		/*
 		Session session = sessionRepo
-							.findById(1l)
-							.orElseThrow(() -> new IllegalArgumentException("Invalid Id: " + 1));
+							.findById(sessionId)
+							.orElseThrow(() -> new IllegalArgumentException("Invalid Id: " + sessionId));
 		
-		SessionItem sessionItem = new SessionItem(session, Category.THOUGHTS, "A thought", 2);
+		SessionItem sessionItem = new SessionItem(session, category, description, intensity);
 		
 		sessionItemRepo.save(sessionItem);
 		
-		*/
+		
 		return "viewAllForms";
 	}
 	
