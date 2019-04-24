@@ -3,10 +3,37 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Item to Session</title>
+
+<script>
+
+const DESC_LENGTH = 100;
+
+function validateForm(){
+	
+	var desc = document.forms["sessionItemForm"]["description"].value;
+	var descErrorMessage = document.getElementById("descErrorMessage");
+	
+	var validForm = true;
+	
+	if(desc == ""){
+		descErrorMessage.innerHTML = "Please enter a description.";
+		validForm = false;
+	} else if(desc.length > DESC_LENGTH){
+		descErrorMessage.innerHTML = "Description cannot be more than 100 characters.";
+		validForm = false;
+	} else {
+		descErrorMessage.innerHTML = "";
+	}
+	
+	return validForm;
+}
+
+</script>
+
 </head>
 <body>
 
-<form action="/addSessionItem" method="POST">
+<form action="/addSessionItem" method="POST" name="sessionItemForm" onsubmit="return validateForm();">
 	
 	<label for="sessionId">Select a Session ID:</label>
 	<select id="sessionId" name="sessionId">
@@ -28,6 +55,7 @@
 	
 	<label for="description">Description: </label>
 	<input type="text" id="description" name="description">
+	<span id="descErrorMessage"></span>
 	<br>
 	
 	<label for="intensity">Intensity</label>
@@ -40,8 +68,8 @@
 	</select>
 	<br>
 	
-	<input type="submit" name="finalAdd" value="Add and Exit">
-	<input type="submit" name="addMore" value="Add and Add Another">
+	<input type="submit" name="submit" value="Add and Exit">
+	<input type="submit" name="submit" value="Add and Add Another">
 	
 </form>
 
