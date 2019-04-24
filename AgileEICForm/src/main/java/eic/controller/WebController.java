@@ -37,8 +37,9 @@ public class WebController {
 								 @RequestParam Category category,
 								 @RequestParam String description,
 								 @RequestParam Integer intensity,
+								 @RequestParam String submit,
 								 Model model){
-		
+		String page;
 		Session session = sessionRepo
 							.findById(sessionId)
 							.orElseThrow(() -> new IllegalArgumentException("Invalid Id: " + sessionId));
@@ -47,7 +48,15 @@ public class WebController {
 		
 		sessionItemRepo.save(sessionItem);
 		
-		return "viewAllForms";
+		model.addAttribute("sessions", sessionRepo.findAll());
+		
+		if(submit.equals("Add and Exit")) {
+			page = "viewAllForms";
+		} else {
+			page = "createSessionItem";
+		}
+		
+		return page;
 	}
 	
 	@GetMapping("/inputSession")
