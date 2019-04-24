@@ -6,12 +6,17 @@
 </head>
 <body>
 
-	<form action="/inputSession" method="POST">
+	<form action="//inputSession" method="POST">
 	
 		<label for="promptingEvent">Prompting Event: </label>
 		<input id="promtingEvent" name="promptingEvent" size="50"> <br />
 		
-		<p>Timestamp: <span></span></p><br>
+		<table>
+			<tr>
+				<th>Event Time and Date: </th>
+				<td><input type="text" name="eventDate" value="YYYY-MM-DD"></td>
+			</tr>
+		</table><br>
 		
 		<input name="submit" type="submit" value="submit" />
 	

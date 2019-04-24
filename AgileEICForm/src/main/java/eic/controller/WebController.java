@@ -3,6 +3,7 @@ package eic.controller;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -59,7 +60,7 @@ public class WebController {
 	
 	@PostMapping("/inputSession")
 	public String inputSession(@RequestParam String promptingEvent,
-							   @RequestParam LocalDate eventDate,
+							   @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDate eventDate,
 							   Model model) {
 		
 		Session session = new Session(promptingEvent,eventDate);
