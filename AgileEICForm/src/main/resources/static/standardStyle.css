@@ -1,0 +1,88 @@
+@charset "ISO-8859-1";
+
+body{
+    background-color: dodgerblue;
+    font-family: Arial, sans-serif;
+}
+
+main{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightskyblue;
+    padding: 10px;
+}
+
+header h1{
+    text-align: center;
+    color: ghostwhite;
+}
+
+header img{
+    width: 100%;
+}
+
+main h2{
+    padding-bottom: 2px;
+    border-bottom: 2px solid black;
+}
+
+main h3{
+    padding-bottom: 2px;
+    border-bottom: 1px dashed black;
+}
+
+nav  {
+    background-color: black;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-left: 12px solid ghostwhite;
+}
+
+nav li {
+    display:inline;
+    padding-right:40px;
+}
+
+nav a  {
+    color:white;
+    text-decoration:none;
+    padding: 10px;
+}
+
+nav a:hover {
+    color: yellow;
+    background-color:lightskyblue;
+    padding: 4px 8px;
+}
+
+table{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+table td{
+    border: 1px solid black;
+    text-align: center;
+}
+
+table th{
+    background-color: black;
+    color: ghostwhite;
+}
+
+
+label{
+    font-weight: bold;
+    margin: 5px;
+}
+
+input{
+	margin: 5px;
+}

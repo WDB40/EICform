@@ -30,9 +30,23 @@ function validateForm(){
 
 </script>
 
+<link rel="stylesheet" type="text/css" href="/standardStyle.css">
+
 </head>
 <body>
 
+<header>
+	<h1>Emotional Intensity Continuum</h1>
+	<img src="/brainBanner.png">
+</header>
+
+<nav>
+	<a href="/index.html">Home</a>
+	<a href="/inputSession">Create a Session</a>
+</nav>
+
+<main>
+<h2>Add a Session Item</h2>
 <form action="/addSessionItem" method="POST" name="sessionItemForm" onsubmit="return validateForm();">
 	
 	<label for="sessionId">Select a Session ID:</label>
@@ -68,13 +82,13 @@ function validateForm(){
 	</select>
 	<br>
 	
-	<input type="submit" name="submit" value="Add and Exit">
-	<input type="submit" name="submit" value="Add and Add Another">
-	
+	<div class="">
+		<input type="submit" name="submit" value="Add and Exit">
+		<input type="submit" name="submit" value="Add and Add Another">
+	</div>
 </form>
+</main>
 
-<a href="/index.html">Home</a>
-<a href="createSession.html">Create a Session</a>
 
 </body>
 </html>
