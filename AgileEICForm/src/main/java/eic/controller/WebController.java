@@ -1,5 +1,6 @@
 package eic.controller;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,15 +62,15 @@ public class WebController {
 	}
 	
 	@GetMapping("/inputSession")
-	public String inputSession(Model model) {
+	public String inputSession(@RequestParam("LocalDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Date date, Model model) {
 		Session sessions = new Session();
 		model.addAttribute("newSession", sessions);
-		return "createSession";
+		return "viewAllForms";
 	}
 	
 	@PostMapping("/inputSession")
-	public String inputSession(@RequestParam String promptingEvent,
-							   @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDate eventDate,
+	public String inputSession(@RequestParam(required=true) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDate eventDate,
+							   @RequestParam String promptingEvent,
 							   Model model) {
 		
 		Session session = new Session(promptingEvent,eventDate);

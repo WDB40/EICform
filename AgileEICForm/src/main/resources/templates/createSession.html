@@ -6,26 +6,26 @@
 </head>
 <body>
 
-	<form action="//inputSession" method="POST">
+	<form action="/inputSession" method="POST" name="sessionInputForm" onsubmit="return validateForm();>
 	
-		<label for="promptingEvent">Prompting Event: </label>
+		<label for= "promptingEvent">Prompting Event: </label>
 		<input id="promtingEvent" name="promptingEvent" size="50"> <br />
 		
 		<table>
 			<tr>
 				<th>Event Time and Date: </th>
-				<td><input type="text" name="eventDate" value="YYYY-MM-DD"></td>
+				<td><input type="text" id="eventDate" name="eventDate"></td>
 			</tr>
 		</table><br>
 		
 		<input name="submit" type="submit" value="submit" />
 	
 	</form>
-	<a href="">View All Your Forms</a>
+	<a href="viewAllForms">View All Your Forms</a>
 	<br>
-	<a href="">Update A Form</a>
+	<a href="updateForm">Update A Form</a>
 	<br>
-	<a href="">Create A Session Item</a>
+	<a href="createSessionItem">Create A Session Item</a>
 	<br>
 
 </body>
