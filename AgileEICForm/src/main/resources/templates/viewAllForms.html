@@ -3,36 +3,52 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>View Sessions</title>
+<link rel="stylesheet" type="text/css" href="/standardStyle.css">
 </head>
 <body>
 
-<form action="/viewSession" method="GET">
-	<label for="sessionId">Select a Session ID:</label>
-	<select id="sessionId" name="sessionId">
-		<option th:each="thisSession : ${sessions}"
-				th:value=${thisSession.sessionId}
-				th:text="${thisSession.sessionId} + ' - ' + ${thisSession.promptingEvent}">
-		</option>
-	</select>
-	<input type="submit" name="submit" value="Select">
-	
-	<br>
-	
-	<table>
-		
-		<tr>
-			<td>Category</td>
-			<td>Description</td>
-			<td>Intensity Level</td>
-		</tr>
-		
-		<tr th:each="thisItem : ${sessionItems}">
-			<td th:text="${thisItem.category}"></td>
-			<td th:text="${thisItem.itemDescription}"></td>
-			<td th:text="${thisItem.intensityLevel}"></td>
-		</tr>
-	</table>
-</form>
+<header>
+	<h1>Emotional Intensity Continuum</h1>
+	<img src="/brainBanner.png">
+</header>
 
+<nav>
+	<a href="/index.html">Home</a>
+	<a href="/inputSession">Create a Session</a>
+	<a href="/addSessionItem">Add Session Item</a>
+	<a href="/viewSessions">View Sessions</a>
+</nav>
+
+<main>
+	
+	<h2>Search the Sessions</h2>
+	<form action="/viewSession" method="GET">
+		<label for="sessionId">Select a Session ID:</label>
+		<select id="sessionId" name="sessionId">
+			<option th:each="thisSession : ${sessions}"
+					th:value=${thisSession.sessionId}
+					th:text="${thisSession.sessionId} + ' - ' + ${thisSession.promptingEvent}">
+			</option>
+		</select>
+		<input type="submit" name="submit" value="Select">
+		
+		<br>
+		
+		<table>
+			
+			<tr>
+				<th>Category</th>
+				<th>Description</th>
+				<th>Intensity Level</th>
+			</tr>
+			
+			<tr th:each="thisItem : ${sessionItems}">
+				<td th:text="${thisItem.category}"></td>
+				<td th:text="${thisItem.itemDescription}"></td>
+				<td th:text="${thisItem.intensityLevel}"></td>
+			</tr>
+		</table>
+	</form>
+</main>
 </body>
 </html>
