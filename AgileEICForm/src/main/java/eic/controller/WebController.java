@@ -69,7 +69,7 @@ public class WebController {
 	
 	@PostMapping("/inputSession")
 	public String inputSession(@RequestParam String promptingEvent,
-							   @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDate eventDate,
+							   @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate eventDate,
 							   Model model) {
 		
 		Session session = new Session(promptingEvent,eventDate);
