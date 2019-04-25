@@ -93,6 +93,7 @@ public class WebController {
 				.findById(sessionId)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid Id: " + sessionId));
 		
+		model.addAttribute("sessionName", session.getSessionId() + " - " + session.getPromptingEvent());
 		model.addAttribute("sessionItems", sessionItemRepo.findBySession(session));
 		model.addAttribute("sessions", sessionRepo.findAll());
 		
