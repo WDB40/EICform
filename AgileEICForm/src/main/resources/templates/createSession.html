@@ -3,10 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Create Session</title>
+<link rel="stylesheet" type="text/css" href="/standardStyle.css">
 </head>
 <body>
+	
+<header>
+	<h1>Emotional Intensity Continuum</h1>
+	<img src="/brainBanner.png">
+</header>
 
-	<form action="/inputSession" method="POST">
+<nav>
+	<a href="/index.html">Home</a>
+	<a href="/inputSession">Create a Session</a>
+	<a href="/addSessionItem">Add Session Item</a>
+	<a href="/viewSessions">View Sessions</a>
+</nav>
+	
+<main>
+	<form action="/inputSession" method="POST" name="sessionInputForm" onsubmit="return validateForm();">
 	
 		<label for="promptingEvent">Prompting Event: </label>
 		<input id="promtingEvent" name="promptingEvent" size="50"> <br />
@@ -18,12 +32,6 @@
 		<input name="submit" type="submit" value="submit" />
 	
 	</form>
-	<a href="">View All Your Forms</a> 
-	<br>
-	<a href="">Update A Form</a>
-	<br>
-	<a href="">Create A Session Item</a>
-	<br>
-
+</main>
 </body>
 </html>
