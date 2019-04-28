@@ -75,6 +75,7 @@ public class WebController {
 		Session session = new Session(promptingEvent,eventDate);
 		model.addAttribute("newSession", sessionRepo.findAll());
 		sessionRepo.save(session);
+		model.addAttribute("sessions", sessionRepo.findAll());
 		return "createSessionItem";
 	}
 	
